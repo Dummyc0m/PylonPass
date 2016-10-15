@@ -1,8 +1,17 @@
 <template>
-  <pylon-dialog title="Register" v-bind:show="show">
-    <form v-on:submit.prevent="handleSubmit">
-      <pylon-textfield v-bind:invalid="invalid" v-on:input="inputUsername">Username</pylon-textfield>
-      <pylon-textfield v-bind:invalid="invalid" v-on:input="inputPassword">Password</pylon-textfield>
+  <pylon-dialog v-bind:show="show">
+    <span slot="title">Register</span>
+    <form v-on:submit.prevent="handleSubmit" slot="content">
+      <pylon-textfield
+        v-bind:invalid="invalid"
+        v-on:input="inputUsername"
+        error="Please input the correct username">Username
+      </pylon-textfield>
+      <pylon-textfield
+        v-bind:invalid="invalid"
+        v-on:input="inputPassword"
+        error="Please input the correct password">Password
+      </pylon-textfield>
       <pylon-submit-button>Register</pylon-submit-button>
     </form>
   </pylon-dialog>
@@ -16,6 +25,16 @@
   export default {
     components: {
       PylonDialog, PylonTextfield, PylonSubmitButton
+    },
+    data () {
+      return {
+        show: false
+      }
+    },
+    methods: {
+      showDialog (toShow) {
+        this.show = toShow
+      }
     }
   }
 </script>

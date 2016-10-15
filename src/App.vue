@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <!--<img class="logo" src="./assets/logo.png">-->
-    <pylon-pass ref="dialog"></pylon-pass>
+    <pylon-pass ref="pass"></pylon-pass>
+    <pylon-forget ref="forget"></pylon-forget>
+    <pylon-register ref="register"></pylon-register>
     <!--<p>-->
     <!--Welcome to your Vue.js app!-->
     <!--</p>-->
     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
-            v-on:click="showDialog">Show
+            v-on:click="showPass">Pass
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            v-on:click="showForget">Forget
+    </button>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+            v-on:click="showRegister">Register
     </button>
 
     <!--<p>-->
@@ -29,14 +37,22 @@
 <script>
   // import PylonPass from './components/PylonPassBackup/PylonPass'
   import PylonPass from './components/PylonPass'
+  import PylonForget from './components/PylonForget'
+  import PylonRegister from './components/PylonRegister'
 
   export default {
     components: {
-      PylonPass
+      PylonPass, PylonForget, PylonRegister
     },
     methods: {
-      showDialog: function () {
-        this.$refs.dialog.showDialog(true)
+      showPass: function () {
+        this.$refs.pass.showDialog(true)
+      },
+      showForget: function () {
+        this.$refs.forget.showDialog(true)
+      },
+      showRegister: function () {
+        this.$refs.register.showDialog(true)
       }
     }
   }

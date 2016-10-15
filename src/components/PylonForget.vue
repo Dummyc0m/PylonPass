@@ -1,10 +1,16 @@
 <template>
-  <pylon-dialog title="Forgot Password" v-bind:show="show">
-    <form v-on:submit.prevent="handleSubmit">
+  <pylon-dialog v-bind:show="show">
+    <span slot="title">Forget</span>
+    <form v-on:submit.prevent="handleSubmit" slot="content">
       <pylon-textfield
         v-bind:invalid="invalid"
         v-on:input="inputUsername"
-        error="Please enter the correct username">Username
+        error="Please input the correct username">Username
+      </pylon-textfield>
+      <pylon-textfield
+        v-bind:invalid="invalid"
+        v-on:input="inputPassword"
+        error="Please input the correct password">Password
       </pylon-textfield>
       <pylon-submit-button>Send Password Reset</pylon-submit-button>
     </form>
@@ -19,6 +25,16 @@
   export default {
     components: {
       PylonDialog, PylonTextfield, PylonSubmitButton
+    },
+    data () {
+      return {
+        show: false
+      }
+    },
+    methods: {
+      showDialog (toShow) {
+        this.show = toShow
+      }
     }
   }
 </script>
