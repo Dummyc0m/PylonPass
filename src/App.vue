@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!--<img class="logo" src="./assets/logo.png">-->
-    <pylon-pass ref="pass"></pylon-pass>
-    <pylon-forget ref="forget"></pylon-forget>
-    <pylon-register ref="register"></pylon-register>
+    <pylon-pass v-bind:show="pass"></pylon-pass>
+    <pylon-forget v-bind:show="forget"></pylon-forget>
+    <pylon-register v-bind:show="register"></pylon-register>
     <!--<p>-->
     <!--Welcome to your Vue.js app!-->
     <!--</p>-->
@@ -44,15 +44,22 @@
     components: {
       PylonPass, PylonForget, PylonRegister
     },
+    data () {
+      return {
+        pass: false,
+        forget: false,
+        register: false
+      }
+    },
     methods: {
       showPass: function () {
-        this.$refs.pass.showDialog(true)
+        this.pass = true
       },
       showForget: function () {
-        this.$refs.forget.showDialog(true)
+        this.forget = true
       },
       showRegister: function () {
-        this.$refs.register.showDialog(true)
+        this.register = true
       }
     }
   }

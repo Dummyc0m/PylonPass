@@ -23,18 +23,17 @@
   import PylonSubmitButton from './BaseComponents/PylonSubmitButton'
 
   export default {
+    props: ['show'],
     components: {
       PylonDialog, PylonTextfield, PylonSubmitButton
     },
     data () {
       return {
-        show: false
+
       }
     },
     methods: {
-      showDialog (toShow) {
-        this.show = toShow
-      }
+
     }
   }
 </script>

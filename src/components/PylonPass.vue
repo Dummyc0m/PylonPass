@@ -23,6 +23,7 @@
   import PylonSubmitButton from './BaseComponents/PylonSubmitButton'
 
   export default {
+    props: ['show'],
     components: {
       PylonDialog, PylonTextfield, PylonSubmitButton
     },
@@ -30,7 +31,6 @@
       return {
         username: '',
         password: '',
-        show: false,
         invalid: false
       }
     },
@@ -41,9 +41,6 @@
         } else {
           this.invalid = true
         }
-      },
-      showDialog (toShow) {
-        this.show = toShow
       },
       inputUsername (value) {
         this.username = value
